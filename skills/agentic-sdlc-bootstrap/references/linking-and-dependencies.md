@@ -22,7 +22,7 @@ In the body use relative Markdown links for readers: `[SPEC-0003](../../02-desig
 Purpose: shows which document types may derive from which, and how Maintain feeds the next intent.
 
 ```mermaid
-flowchart LR
+flowchart TD
   INT[INT intent] --> SPEC[SPEC spec] --> PLAN[PLAN plan] --> VER[VER verification]
   VER --> REV[REV review] --> REL[REL release] --> OPS[OPS operations]
   OPS -- opens new --> INT
