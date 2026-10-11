@@ -1,0 +1,8 @@
+{
+  "skill_name": "agentic-sdlc-bootstrap",
+  "evals": [
+    {"id": 1, "prompt": "Quiero montar un SDLC agentico para una nueva app de autoservicio de reclamos de seguros. Equipo de 6 personas, repo en GitHub, hay requisitos de privacidad (no PII nueva).", "expected_output": "Interview, software profile, proposed chain + Mermaid graph, wait for confirmation, then scaffold with INT-0001 populated from answers; validator passes."},
+    {"id": 2, "prompt": "Necesito un sistema para coordinar la transicion de nuestra flota de 120 camiones a electricos: compras, cargadores, capacitacion de conductores y presupuesto. No es software.", "expected_output": "Program profile with 3-4 workstreams, program-level intent, cross-workstream depends_on links, gates for budget approval; all artifacts in English."},
+    {"id": 3, "prompt": "Ya tengo un SDLC con documentos sueltos en una carpeta docs/. Como los versiono y los enlazo para saber que plan se hizo contra que spec?", "expected_output": "Explains versioning-policy and pinned links; offers to migrate by adding front matter and running validate_docs.py; does not scaffold blindly."}
+  ]
+}
