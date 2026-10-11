@@ -33,17 +33,13 @@ external_refs: []          # Non-git references: [jira:PROJ-12, url:https://...]
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart LR
   A[Approved release] --> R[Roll out to audience]
   R --> M{Control bands healthy?}
   M -- yes --> Done([Release complete])
   M -- breach --> B[Rollback] --> O[Open operations record] 
-  classDef risk fill:#fecaca,stroke:#991b1b,stroke-width:2px,color:#111827;
-  class B,O risk;
-  linkStyle default stroke-width:2px;
 ```
-Key: red = rollback path.
+Key: the lower branch is the rollback path.
 - _Narrate the trigger that invokes rollback._
 - _State who can invoke it._
 

@@ -30,15 +30,11 @@ covers: []                 # Requirement ids verified here, e.g. [R-1, R-2].
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart LR
   C[Change ready] --> R[Run checks C-1..C-n]
   R --> P{All pass?}
   P -- yes --> E[(Evidence stored)] --> Next([Ready for review])
   P -- no --> D[Diagnose] --> Fix[Builder fixes deliverable, never the check] --> R
-  classDef gate fill:#fde68a,stroke:#92400e,stroke-width:2px,color:#111827;
-  class P gate;
-  linkStyle default stroke-width:2px;
 ```
 Key: cylinder = stored evidence.
 - _Narrate the check order._

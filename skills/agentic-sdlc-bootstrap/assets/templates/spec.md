@@ -34,7 +34,6 @@ external_refs: []          # Non-git references: [jira:PROJ-12, url:https://...]
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart TD
   subgraph Human
     H1([Originator])
@@ -46,11 +45,8 @@ flowchart TD
   H1 --> A1 --> G
   G -- yes --> N[Next stage]
   G -- no, changes requested --> A1
-  classDef gate fill:#fde68a,stroke:#92400e,stroke-width:2px,color:#111827;
-  class G gate;
-  linkStyle default stroke-width:2px;
 ```
-Key: blue diamond = human approval gate; arrows are labelled with the outcome.
+Key: diamond = human approval gate; arrows are labelled with the outcome.
 - _Narrate the main path._
 - _Narrate the exception or failure path._
 

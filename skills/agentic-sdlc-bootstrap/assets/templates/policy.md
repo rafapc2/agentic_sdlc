@@ -36,7 +36,6 @@ external_refs: []          # Non-git references: [jira:PROJ-12, url:https://...]
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart LR
   P[Policy statement] --> S[Skill advises the agent]
   S --> Act[Agent acts]
@@ -45,11 +44,8 @@ flowchart LR
   H -- yes --> CI{CI check passes?}
   CI -- no --> Fail[Merge blocked]
   CI -- yes --> Rev[Human review if critical]
-  classDef gate fill:#fde68a,stroke:#92400e,stroke-width:2px,color:#111827;
-  class H,CI gate;
-  linkStyle default stroke-width:2px;
 ```
-Key: blue diamonds = automated enforcement points.
+Key: diamonds = automated enforcement points.
 - _Narrate which layer is advisory and which is deterministic._
 
 ## Related documents
