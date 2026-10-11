@@ -167,23 +167,14 @@ def mermaid_blocks(body):
     return blocks, problems
 
 
-MERMAID_INIT = '%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%'
-
-
-def mermaid_contrast_warnings(blocks):
-    """Readability rules from references/diagramming-guide.md: explicit theme header and explicit text colour on styles."""
+def mermaid_theme_warnings(blocks):
+    """Diagrams must use the host's default Mermaid theme (e.g. GitHub dark/light). Custom colours or theme
+    overrides are flagged because they can make text unreadable in the viewer's mode."""
     out = []
     for i, b in enumerate(blocks, 1):
-        code = [l for l in b.splitlines() if l.strip()]
-        kind = next((l.split()[0].rstrip(";") for l in code if not l.strip().startswith("%")), "")
-        if "%{init" not in b:
-            out.append("diagram %d (%s) lacks the standard %%{init ...}%% theme header; it may be unreadable on dark backgrounds" % (i, kind))
-        for l in code:
-            if re.match(r"\s*(classDef|style)\s", l) and "fill:" in l and "color:" not in l:
-                out.append("diagram %d: style sets fill without text color (add color:#111827): %s" % (i, l.strip()[:60]))
+        for l in b.splitlines():
+            t = l.strip()
+            if t.startswith("%%{init") or re.match(r"(classDef|style|linkStyle)\s", t) or re.match(r"rect\s+(rgb|#)", t) or ":::" in t:
+                out.append("diagram %d overrides the default theme (%s); remove custom colours/styles and use shapes and labels instead" % (i, t[:50]))
                 break
-        if kind == "stateDiagram" or kind == "stateDiagram-v2":
-            out.append("diagram %d uses stateDiagram; use a flowchart with rounded state nodes (readability)" % i)
-        if kind == "sequenceDiagram" and re.search(r"^\s*actor\s", b, re.M):
-            out.append("diagram %d uses 'actor' in a sequenceDiagram; use 'participant' so names are readable" % i)
     return out

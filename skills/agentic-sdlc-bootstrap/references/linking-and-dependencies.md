@@ -22,14 +22,12 @@ In the body use relative Markdown links for readers: `[SPEC-0003](../../02-desig
 Purpose: shows which document types may derive from which, and how Maintain feeds the next intent.
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart LR
   INT[INT intent] --> SPEC[SPEC spec] --> PLAN[PLAN plan] --> VER[VER verification]
   VER --> REV[REV review] --> REL[REL release] --> OPS[OPS operations]
   OPS -- opens new --> INT
   POL[POL policy] -. depends_on .-> SPEC
   DEC[DEC decision] -. depends_on .-> PLAN
-  linkStyle default stroke-width:2px;
 ```
 Key: solid arrows = `derived_from`; dashed = `depends_on`.
 - Lineage flows one way through the stages; OPS is the only way back to INT.

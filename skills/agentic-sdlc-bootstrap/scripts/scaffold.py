@@ -33,7 +33,6 @@ LABELS = {
 FOLDERS = ["01-plan/intents", "01-plan/policies", "02-design/specs", "02-design/decisions", "03-build/plans",
            "04-test/verification", "05-deploy/reviews", "05-deploy/releases", "06-maintain/operations"]
 LITE_FOLDERS = ["01-plan/intents", "01-plan/policies", "02-design/specs", "03-build/plans", "06-maintain/operations"]
-MERMAID_INIT = '%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%'
 ROLES = {
     "drafter": ("Drafts intents and specs from conversation and policies; flags areas of concern.",
                 "Read, Grep, Glob, Write, Edit",
@@ -147,7 +146,6 @@ a version and pinned links to its upstream documents. Humans approve at the gate
 Purpose: shows the loop, the artifact each stage commits, and where a human must approve.
 
 ```mermaid
-@@INIT@@
 flowchart TD
   P[Plan<br/>INT intent] --> G1{{"G1 owner accepts"}}
   G1 --> D[Design<br/>SPEC spec]
@@ -160,11 +158,8 @@ flowchart TD
   R --> G5{{"G5 release approved"}}
   G5 --> M[Maintain<br/>OPS record]
   M -- breach or learning --> P
-  classDef gate fill:#fde68a,stroke:#92400e,stroke-width:2px,color:#111827;
-  class G1,G2,G3,G4,G5 gate;
-  linkStyle default stroke-width:2px;
 ```
-Key: amber diamonds = human approval gates (details in `governance/gates.md`).
+Key: diamonds = human approval gates (details in `governance/gates.md`).
 - Each stage commits one artifact that the next stage reads.
 - Maintain closes the loop by writing the next intent.
 
@@ -182,7 +177,6 @@ python sdlc/_tools/validate_docs.py sdlc          # add --git in CI to catch sil
 ```
 View the dependency graph: open `.index/graph.mmd` in any Mermaid renderer. What depends on what: `.index/impact.md`.
 """
-    readme = readme.replace("@@INIT@@", MERMAID_INIT)
     write(sdlc / "README.md", readme, a.force, created, skipped)
     gates = f"""# Gates
 <!-- A gate is the human decision point that ends a stage. Fill approver names; keep evidence concrete. -->
@@ -200,17 +194,12 @@ View the dependency graph: open `.index/graph.mmd` in any Mermaid renderer. What
 Purpose: shows how any artifact moves from draft to approved and what happens on rejection or later change.
 
 ```mermaid
-@@INIT@@
 flowchart LR
-  draft(["draft"]):::neutral -- author requests review --> in_review(["in_review"]):::agent
+  draft(["draft"]) -- author requests review --> in_review(["in_review"])
   in_review -- changes requested --> draft
-  in_review -- "approver signs off (human)" --> approved(["approved"]):::ok
+  in_review -- "approver signs off (human)" --> approved(["approved"])
   approved -- "version bump after content change" --> in_review
-  approved -- replaced --> superseded(["superseded"]):::neutral
-  classDef neutral fill:#f1f5f9,stroke:#475569,stroke-width:2px,color:#111827;
-  classDef agent fill:#dbeafe,stroke:#1d4ed8,stroke-width:2px,color:#111827;
-  classDef ok fill:#bbf7d0,stroke:#166534,stroke-width:2px,color:#111827;
-  linkStyle default stroke-width:2px;
+  approved -- replaced --> superseded(["superseded"])
 ```
 - Only a human approver moves a document to `approved`.
 - Editing approved content always creates a new version that re-enters review.
@@ -220,7 +209,6 @@ flowchart LR
 - Raise a stage's autonomy tier (`sdlc.config.json` -> `autonomy`) only after its gate, checks and rollback path exist.
 - Actions that publish, delete or spend money require human approval regardless of tier.
 """
-    gates = gates.replace("@@INIT@@", MERMAID_INIT)
     write(sdlc / "governance" / "gates.md", gates, a.force, created, skipped)
 
     # first intent

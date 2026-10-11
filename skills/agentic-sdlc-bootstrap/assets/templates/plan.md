@@ -30,7 +30,6 @@ covers: []                 # Requirement ids this plan implements, e.g. [R-1, R-
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","lineColor":"#8b9bb0","textColor":"#111827","primaryTextColor":"#111827","primaryColor":"#dbeafe","primaryBorderColor":"#1d4ed8","edgeLabelBackground":"#ffffff","clusterBkg":"#f1f5f9","clusterBorder":"#475569","titleColor":"#111827"},"flowchart":{"curve":"basis","padding":14}}}%%
 flowchart TD
   S1[Step 1: describe deliverable] --> V1{Verified?}
   V1 -- yes --> S2[Step 2: describe deliverable]
@@ -38,11 +37,8 @@ flowchart TD
   S2 --> V2{Verified?}
   V2 -- yes --> Done([Plan complete])
   V2 -- no --> F1
-  classDef check fill:#fde68a,stroke:#92400e,stroke-width:2px,color:#111827;
-  class V1,V2 check;
-  linkStyle default stroke-width:2px;
 ```
-Key: blue diamonds = verification points; the loop shows where rework happens.
+Key: diamonds = verification points; the loop shows where rework happens.
 - _Narrate the critical path._
 - _Narrate what happens when a check fails._
 1. _step_ - deliverable touched - how it is verified

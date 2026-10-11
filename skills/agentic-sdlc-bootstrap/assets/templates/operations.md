@@ -27,9 +27,7 @@ external_refs: []          # Non-git references: [jira:PROJ-12, url:https://...]
 **Purpose:** _one sentence: what this diagram shows and the question it answers._
 
 ```mermaid
-%%{init: {"theme":"base","themeVariables":{"fontFamily":"Arial, sans-serif","fontSize":"16px","actorBkg":"#dbeafe","actorBorder":"#1d4ed8","actorTextColor":"#111827","actorLineColor":"#475569","signalColor":"#1f2937","signalTextColor":"#111827","noteBkgColor":"#fde68a","noteBorderColor":"#92400e","noteTextColor":"#111827","labelBoxBkgColor":"#f1f5f9","labelBoxBorderColor":"#475569","labelTextColor":"#111827"}}}%%
 sequenceDiagram
-  rect rgb(241, 245, 249)
   participant M as Monitor / person
   participant O as operator agent
   participant H as Human owner
@@ -37,7 +35,6 @@ sequenceDiagram
   O->>O: Diagnose with evidence
   O->>H: Propose follow-up (new intent?)
   H-->>O: Decision
-  end
 ```
 Key: solid arrows = requests; dashed = responses.
 - _Narrate detection and diagnosis._
