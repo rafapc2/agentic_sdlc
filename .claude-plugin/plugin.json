@@ -1,0 +1,10 @@
+{
+  "name": "agentic-sdlc",
+  "version": "1.0.0",
+  "description": "Bootstrap an agentic SDLC from scratch for software and non-software projects: interview, artifact chain with pinned versioned links, scaffold and validation scripts, gates and agent roles.",
+  "author": { "name": "Rafa Prudencio", "url": "https://github.com/rafapc2" },
+  "homepage": "https://github.com/rafapc2/agentic_sdlc",
+  "repository": "https://github.com/rafapc2/agentic_sdlc",
+  "license": "MIT",
+  "keywords": ["sdlc", "agentic", "skill", "mermaid", "governance"]
+}

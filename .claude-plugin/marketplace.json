@@ -1,0 +1,12 @@
+{
+  "name": "agentic-sdlc-marketplace",
+  "owner": { "name": "Rafa Prudencio", "url": "https://github.com/rafapc2" },
+  "description": "Skills for building an agentic SDLC.",
+  "plugins": [
+    {
+      "name": "agentic-sdlc",
+      "source": ".",
+      "description": "Bootstrap an agentic SDLC from scratch for software and non-software projects, with versioned, linked documents and Mermaid diagrams."
+    }
+  ]
+}
