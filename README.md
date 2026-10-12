@@ -76,6 +76,10 @@ claude plugin install agentic-sdlc@agentic-sdlc-marketplace
 
 Release by bumping `version` in `.claude-plugin/plugin.json`; users get the new version on their next marketplace update.
 
+## Data and privacy
+
+This plugin is a set of Markdown instructions, templates and local Python/Bash scripts. It does not run a server, does not call any network service, does not collect telemetry, and does not send any data anywhere. The scripts only read and write files inside the project folder you generate (including the optional `.index/` reports), and the optional validation hook runs locally. It declares no MCP servers and no `npx` or `uvx` launchers, so there are no launcher versions to pin and no privacy-policy URL is required. Anything you type in the interview is handled by Claude under your own Claude plan's terms, not by this plugin.
+
 ## License
 
 MIT, see [LICENSE](LICENSE).
