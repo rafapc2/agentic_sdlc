@@ -1,5 +1,6 @@
 {
   "name": "agentic-sdlc",
+  "displayName": "Agentic SDLC Bootstrap",
   "version": "1.0.0",
   "description": "Bootstrap an agentic SDLC from scratch for software and non-software projects: interview, artifact chain with pinned versioned links, scaffold and validation scripts, gates and agent roles.",
   "author": {
