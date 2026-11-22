@@ -1,0 +1,102 @@
+{
+  "nodes": [
+    {
+      "id": "DEC-0001",
+      "type": "decision",
+      "title": "Generation approach and sandbox",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "build",
+      "path": "02-design/decisions/DEC-0001-generation-approach-and-sandbox.md"
+    },
+    {
+      "id": "INT-0001",
+      "type": "intent",
+      "title": "MCP App Builder",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "plan",
+      "path": "01-plan/intents/INT-0001-mcp-app-builder.md"
+    },
+    {
+      "id": "PLAN-0001",
+      "type": "plan",
+      "title": "MVP implementation plan",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "build",
+      "path": "03-build/plans/PLAN-0001-mvp-implementation-plan.md"
+    },
+    {
+      "id": "POL-0001",
+      "type": "policy",
+      "title": "Generated MCP server safety",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "plan",
+      "path": "01-plan/policies/POL-0001-generated-mcp-server-safety.md"
+    },
+    {
+      "id": "SPEC-0001",
+      "type": "spec",
+      "title": "MCP App Builder MVP",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "design",
+      "path": "02-design/specs/SPEC-0001-mcp-app-builder-mvp.md"
+    },
+    {
+      "id": "VER-0001",
+      "type": "verification",
+      "title": "MVP generation evals",
+      "version": "0.1.0",
+      "status": "draft",
+      "stage": "test",
+      "path": "04-test/verification/VER-0001-mvp-generation-evals.md"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DEC-0001",
+      "to": "SPEC-0001",
+      "kind": "derived_from",
+      "pinned": "0.1.0",
+      "state": "ok"
+    },
+    {
+      "from": "SPEC-0001",
+      "to": "INT-0001",
+      "kind": "derived_from",
+      "pinned": "0.1.0",
+      "state": "ok"
+    },
+    {
+      "from": "SPEC-0001",
+      "to": "POL-0001",
+      "kind": "depends_on",
+      "pinned": "0.1.0",
+      "state": "ok"
+    },
+    {
+      "from": "PLAN-0001",
+      "to": "SPEC-0001",
+      "kind": "derived_from",
+      "pinned": "0.1.0",
+      "state": "ok"
+    },
+    {
+      "from": "VER-0001",
+      "to": "SPEC-0001",
+      "kind": "derived_from",
+      "pinned": "0.1.0",
+      "state": "ok"
+    },
+    {
+      "from": "VER-0001",
+      "to": "PLAN-0001",
+      "kind": "derived_from",
+      "pinned": "0.1.0",
+      "state": "ok"
+    }
+  ]
+}

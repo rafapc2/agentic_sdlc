@@ -32,7 +32,8 @@ LABELS = {
 }
 FOLDERS = ["01-plan/intents", "01-plan/policies", "02-design/specs", "02-design/decisions", "03-build/plans",
            "04-test/verification", "05-deploy/reviews", "05-deploy/releases", "06-maintain/operations"]
-LITE_FOLDERS = ["01-plan/intents", "01-plan/policies", "02-design/specs", "03-build/plans", "06-maintain/operations"]
+LITE_FOLDERS = ["01-plan/intents", "01-plan/policies", "02-design/specs", "03-build/plans", "04-test/verification",
+                "06-maintain/operations"]
 ROLES = {
     "drafter": ("Drafts intents and specs from conversation and policies; flags areas of concern.",
                 "Read, Grep, Glob, Write, Edit",

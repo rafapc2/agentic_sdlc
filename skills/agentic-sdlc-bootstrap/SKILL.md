@@ -42,7 +42,7 @@ python scripts/scaffold.py --name "<project name>" --profile <profile> --out <ta
   [--workstreams "ws1,ws2"] [--owner "<name>"] [--force]
 ```
 
-Then adapt the generated files to the interview answers: fill the first intent, tailor `CLAUDE.md`, adjust gates and agent roles. Generated templates contain explanatory comments; keep them, they teach contributors the rules.
+Then adapt the generated files to the interview answers: fill the first intent, tailor `CLAUDE.md` (replace the placeholder under "Commands" with the real test, lint, build and check commands, asking the user if unknown), adjust gates and agent roles. Generated templates contain explanatory comments; keep them, they teach contributors the rules.
 
 ### 5. Wire governance
 Read `references/governance-and-gates.md`. Configure gates (`sdlc/governance/gates.md`), the validation hook (`.claude/hooks/validate-docs.sh`) and, where CI exists, a CI job running `scripts/validate_docs.py`. Record autonomy tier per stage.
@@ -87,6 +87,6 @@ Full rules live in `references/versioning-policy.md` and `references/linking-and
 
 - Do not scaffold before the user confirms the artifact chain.
 - Do not invent compliance requirements; ask, and record unknowns as open questions in the intent.
-- Keep the system proportional: a one-person pilot needs 3 stages of ceremony, not 6. Offer the `lite` mode (`--mode lite`) which skips verification/release folders until needed.
+- Keep the system proportional: a one-person pilot needs 3 stages of ceremony, not 6. Offer the `lite` mode (`--mode lite`) which skips review/release folders until needed but always keeps `04-test/verification`, because anything that generates code or decisions needs independent checks.
 - Never describe a process in prose only; add the Mermaid diagram.
 - Never put secrets, credentials or personal data in generated documents.

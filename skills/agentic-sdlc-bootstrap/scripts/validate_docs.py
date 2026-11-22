@@ -123,6 +123,11 @@ def main():
             warn(rel, "draft has no ```mermaid diagram yet (required before review)")
         for mw in L.mermaid_theme_warnings(blocks):
             warn(rel, mw)
+        # Leftover scaffold placeholders mean the template was never filled in.
+        for marker in ("_one sentence:", "_Narrate the", "_Step performed by agent_", "Step performed by agent", "Current manual step"):
+            if marker in body:
+                warn(rel, "template placeholder left in document (%r); replace it with real content" % marker)
+                break
         have = L.headings(body)
         for sec in cfg["required_sections"].get(t, []):
             if sec not in have:
