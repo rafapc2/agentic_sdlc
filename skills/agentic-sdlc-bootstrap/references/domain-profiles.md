@@ -31,4 +31,4 @@ For projects with several streams, create one `INT` at program level and child w
 If nothing fits, start from `program`, rename labels in `sdlc/sdlc.config.json` (`stage_labels`, `types`) and re-run the validator. Do not add new canonical stages; add artifact types inside an existing stage.
 
 ## Lite mode
-For pilots and individuals: keep `plan`, `build`, and `maintain` folders, and add `design`/`test`/`deploy` the first time they are needed. The validator tolerates absent folders.
+For pilots and individuals: keep `plan`, `design`, `build`, `test` (verification) and `maintain` folders, and add `deploy` the first time they are needed. The validator tolerates absent folders.
