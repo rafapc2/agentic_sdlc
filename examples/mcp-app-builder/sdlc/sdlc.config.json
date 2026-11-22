@@ -1,0 +1,171 @@
+{
+  "_comment": "Edit types/chain/required_sections to customise. Canonical stage ids never change; only labels do.",
+  "project": "MCP App Builder",
+  "profile": "software",
+  "mode": "lite",
+  "created": "2026-11-22",
+  "stage_labels": {
+    "plan": "Plan",
+    "design": "Design",
+    "build": "Build",
+    "test": "Test",
+    "deploy": "Deploy",
+    "maintain": "Maintain"
+  },
+  "autonomy": {
+    "plan": "gated",
+    "design": "gated",
+    "build": "gated",
+    "test": "gated",
+    "deploy": "gated",
+    "maintain": "gated"
+  },
+  "workstreams": [],
+  "types": {
+    "intent": {
+      "prefix": "INT",
+      "stage": "plan",
+      "root": true
+    },
+    "policy": {
+      "prefix": "POL",
+      "stage": "plan",
+      "root": true
+    },
+    "spec": {
+      "prefix": "SPEC",
+      "stage": "design"
+    },
+    "decision": {
+      "prefix": "DEC",
+      "stage": "build"
+    },
+    "plan": {
+      "prefix": "PLAN",
+      "stage": "build"
+    },
+    "verification": {
+      "prefix": "VER",
+      "stage": "test"
+    },
+    "review": {
+      "prefix": "REV",
+      "stage": "deploy"
+    },
+    "release": {
+      "prefix": "REL",
+      "stage": "deploy"
+    },
+    "operations": {
+      "prefix": "OPS",
+      "stage": "maintain"
+    }
+  },
+  "chain": {
+    "spec": [
+      "intent"
+    ],
+    "decision": [
+      "spec",
+      "plan",
+      "intent"
+    ],
+    "plan": [
+      "spec"
+    ],
+    "verification": [
+      "spec",
+      "plan"
+    ],
+    "review": [
+      "plan",
+      "verification"
+    ],
+    "release": [
+      "review"
+    ],
+    "operations": [
+      "release"
+    ],
+    "intent": [
+      "operations"
+    ]
+  },
+  "required_sections": {
+    "intent": [
+      "Problem",
+      "Proposed outcome",
+      "Affected users and systems",
+      "Constraints",
+      "Open questions",
+      "Changelog"
+    ],
+    "spec": [
+      "Summary",
+      "Requirements",
+      "Design",
+      "Policy compliance",
+      "Areas of concern",
+      "Acceptance criteria",
+      "Changelog"
+    ],
+    "plan": [
+      "Objective",
+      "Steps",
+      "Deliverables touched",
+      "Risks",
+      "Verification",
+      "Rollback",
+      "Changelog"
+    ],
+    "decision": [
+      "Context",
+      "Options",
+      "Decision",
+      "Consequences",
+      "Changelog"
+    ],
+    "verification": [
+      "Scope",
+      "Checks",
+      "Evidence",
+      "Results",
+      "Changelog"
+    ],
+    "review": [
+      "Scope",
+      "Findings",
+      "Human sign-off",
+      "Changelog"
+    ],
+    "release": [
+      "Contents",
+      "Approvals",
+      "Rollback path",
+      "Changelog"
+    ],
+    "operations": [
+      "Trigger",
+      "Diagnosis",
+      "Impact",
+      "Follow-up",
+      "Changelog"
+    ],
+    "policy": [
+      "Statement",
+      "Scope",
+      "Owner and source of truth",
+      "Enforcement",
+      "Changelog"
+    ]
+  },
+  "diagram_required": [
+    "intent",
+    "spec",
+    "plan",
+    "verification",
+    "release",
+    "operations",
+    "policy"
+  ]
+}
